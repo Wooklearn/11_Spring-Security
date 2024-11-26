@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ohgiraffers.sessionsecurity.user.model.dao.UserMapper">
+    <insert id="regist" parameterType="com.ohgiraffers.sessionsecurity.user.model.dto.SignupDTO">
+
+        INSERT INTO TBL_USER
+        (USER_ID, USER_NAME, PASSWORD, USER_ROLE)
+        VALUES
+        (#{userId}, #{userName}, #{userPass}, #{role})
+
+    </insert>
+
+
+</mapper>
