@@ -3,6 +3,10 @@ package com.ohgiraffers.sessionsecurity.user.model.dto;
 import com.ohgiraffers.sessionsecurity.common.UserRole;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -22,4 +26,14 @@ public class LoginUserDTO {
     private String password;
     private UserRole userRole;
 
+    public List<String> getRole() {
+
+        if (this.userRole.getRole().length() > 0) {
+            // 회원의 권한이 여러개 ex) 일반회원 + 관리자 일 시
+            // 두 권한을 담기 위한 리스트
+            return Arrays.asList(this.userRole.getRole().split(","));
+        }
+
+        return new ArrayList<>();
+    }
 }
